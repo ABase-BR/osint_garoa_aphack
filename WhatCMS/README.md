@@ -11,6 +11,22 @@ Com ele conseguimos reconhecer mais de 422 CMS e alguns deles são:
 - Drupal
 - PhpBB
 
+Podemos usar ele sem cadastro usando o site
+```sh
+https://whatcms.org/
+```
+
+Caso queira usar a API podemos realizar o cadastro:
+```sh
+https://whatcms.org/API?cmd=RegisterForm
+```
+> O cadastro é gratuito
+
+Também podemos usar as versões pagas por **10 dólares** por mes conseguindo verificar **10 mil sites** e até **360 dólares** por mês conseguindo verificar mais de **1 milhão de sites**.
+```sh
+https://whatcms.org/Subscriptions/Plans
+```
+
 ## Como ele reconhece ?
 Graças a **analise de metadados**, **headers da aplicação** e **arquivos javascript** ele consegue identificar um CMS.
 
@@ -22,6 +38,9 @@ Podemos usar o python3 para automatizar a coleta de informações do whatcms e g
 O que precisamos saber ?
 - Realiza 1000 (mil) requisições por mês
 - 1 requisição a cada 10 segundos
+
+> Mais informações em:
+- https://whatcms.org/API
 
 ## Automatizando teste usando python3
 Podemos usar o python para criar um programa e assim nos auxiliar na consulta do whatcms.
