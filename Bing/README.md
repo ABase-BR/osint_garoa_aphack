@@ -2,7 +2,6 @@
 https://www.bing.com/
 ```
 
-
 Também temos diversas fontes de informações que são válidas como o Bing que é um buscador desenvolvido pela Microsoft que também nos retorna informações que podemos usar. Infelizmente devido ao grande uso do Google as pessoas acabam deixando de usar , o DuckDuckGo ou até nem conhecendo os projetos.
 
 ## Operadores
@@ -10,7 +9,7 @@ Também temos diversas fontes de informações que são válidas como o Bing que
 ### contains
 Usando o operador **contains** podemos manter os resultados em sites que possuem links para os tipos de arquivo especificados.
 
-Por exemplo , podemos procurar por sites que contenham links para arquivos Microsoft Windows Media Áudio (.wma) , veja um exemplo:
+Por exemplo , podemos procurar por sites que contenham links para arquivos Microsoft Windows Media Audio (.wma) , veja um exemplo:
 ```sh
 rap contains:wma
 ```
@@ -32,7 +31,7 @@ Podemos usar o **filetype** para retornar apenas páginas com um tipo de arquivo
 
 Veja um exemplo para localizar relatórios criados no formato PDF:
 ```sh
-relatorio filetype:pdf
+relatório filetype:pdf
 ```
 
 Dessa forma podemos encontrar diversos resultado de arquivos PDF.
@@ -53,7 +52,7 @@ Veja um exemplo do uso do operador site , ele retorna diversos subdomínios do d
 site:google.com
 ```
 
-Com o uso do site podemos procurar domínios , subdomínios e diretórios com até dois níveis.
+Com o uso do site podemos procurar domínios, subdomínios e diretórios com até dois níveis.
 
 ### ip
 Podemos buscar informações usando o operador IP.

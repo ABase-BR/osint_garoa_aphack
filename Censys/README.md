@@ -1,5 +1,5 @@
 ## O que é o Censys
-Censys que foi criado em 2015 na universidade de Michigan , ele nos auxilia na busca de dispositivos , redes e infraestruturas.
+Censys que foi criado em 2015 na universidade de Michigan, ele nos auxilia na busca de dispositivos , redes e infraestruturas.
 
 ![Censys 1](https://i.imgur.com/4OHE97L.png)
 
@@ -18,12 +18,12 @@ Agora com a ajuda desse mecanismo de busca podemos encontrar facilmente informa�
 - Podemos ver o tipo de servidor usado
 - Status do teste
 - Titulo do IP usado
-- Nome da rede  de sites e IPS.
+- Nome da rede  de sites e IPS.
 - Identifica
 
 ![Censys 3](https://i.imgur.com/tmahhSn.png)
 
-E podemos obter essas informações sem estar logado no censys , podemos criar uma conta free e já começar a usar.
+E podemos obter essas informações sem estar logado no censys, podemos criar uma conta free e já começar a usar.
 
 ## Já logado no sistema
 Logado no sistema podemos já realizar consultas de **whois** , podemos obter informações nos formatos:
@@ -55,7 +55,7 @@ Podemos usar a opção de site que fica disponível em:
 https://censys.io/domain?q=globo.com
 ```
 
-Ao pesquisar temos vários resultados de sites , o primeiro foi o que nos buscamos e além disso temos as seguintes informações:
+Ao pesquisar temos vários resultados de sites , o primeiro foi o que nós buscamos e além disso temos as seguintes informações:
 - Protocolos
 - Tags
 - Resultados
@@ -69,7 +69,7 @@ Ao selecionar o nosso site temos informações como
 - Protocolos disponível
 - Informações sobre as portas que estão abertas
 - Qual o servidor usado
-- Titilo do site
+- Titulo do site
 - Informações sobre certificados do HTTPS
 - Banner do serviço
 - Configurações de DNS
@@ -97,7 +97,7 @@ Podemos ver a documentação em
 https://censys.io/api
 ```
 
-> Precisamos criar uma conta no Censys , com ela temos acesso a informações da conta , **API ID** , **Secret** , limites da conta.
+> Precisamos criar uma conta no Censys, com ela temos acesso a informações da conta , **API ID** , **Secret** , limites da conta.
 
 ## Criando conta
 Podemos criar uma conta Free no seguinte link
@@ -108,7 +108,7 @@ https://censys.io/register
 > Pode ser necessário validar a conta no seu email , caso não queira usar o seu email é possível usar **https://10minutemail.net/?lang=pt-br**.
 
 ### Informações de conta
-Depois de criar uma conta podemos ir no link a baixo e ver informações da conta.
+Depois de criar uma conta podemos ir no link abaixo e ver informações da conta.
 ```sh
 https://censys.io/account
 ```
@@ -137,13 +137,13 @@ No link acima é possível obter as credenciais para o uso da API e além disso 
 - Resetar as chaves da API
 
 ### Formas de pagamento
-Temos uma conta free , porem podemos pagar uma conta Pro ou até Enterprise.
+Temos uma conta free, porém podemos pagar uma conta Pro ou até Enterprise.
 ```sh
 https://censys.io/account/billing
 ```
 
 ## Censys API + Python
-É possivel usar a API do censys com o Python.
+É possível usar a API do censys com o Python.
 
 Anteriormente já tivemos acesso as credenciais necessárias , agora vou mostrar a documentação do github.
 ```sh
@@ -151,6 +151,52 @@ https://github.com/censys/censys-python
 ```
 
 E tem até alguns exemplos de uso.
+> https://censys.io/api
+
+### Criando codigo Python
+Podemos criar um código em Python para automatizar a consulta e além disso também vamos usar argumentos para que possamos usar o código de forma fácil.
+```python
+import censys.ipv4
+import pprint
+
+import sys
+
+if len(sys.argv) >= 2:
+    alvo = sys.argv[1]
+
+    c = censys.ipv4.CensysIPv4(api_id="API ID", api_secret="Secret")
+
+    pp = pprint.PrettyPrinter(indent=4)
+
+    # the report method constructs a report using a query, an aggretaion field, and the
+    # number of buckets to bin
+    c.report(""" "welcome to" AND tags.raw: "http" """, field="80.http.get.headers.server.raw", buckets=5)
+
+    # the view method lets you see the full JSON for an IP address
+    pp.pprint(c.view(alvo))
+else:
+    print("Não foi passado argumento")
+```
+
+### Criando imagem Docker
+Com o código que criamos anteriormente conseguimos criar uma imagem no docker e assim automatizar a criação da infraestrutura.
+```sh
+FROM python:alpine
+WORKDIR /root
+COPY . .
+RUN pip3 install censys
+ENTRYPOINT ["python3","script-censys.py"]
+```
+
+Vamos realizar o build da imagem
+```sh
+sudo docker build -t "greenmind/censys:1" .
+```
+
+Podemos usar a imagem criada anteriormente da seguinte forma
+```sh
+sudo docker run -it --rm "greenmind/censys:1" 37.59.174.225
+```
 
 ### Projeto gelim/censys
 Podemos usar um projeto bem interessante que está disponível no Github , ele nos auxilia para o uso da API do Censys com a linguagem python e ainda disponibiliza uma documentação.

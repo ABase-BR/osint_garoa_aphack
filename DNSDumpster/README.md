@@ -9,7 +9,7 @@ DNSDumpster nos ajuda no
 
 ![DNSDumpster 1](https://i.imgur.com/ALy0k0W.png)
 
-Podemos buscar por hosts relacionados a um domínio , que vai nos retornar informações interessantes como
+Podemos buscar por hosts relacionados a um domínio, que vai nos retornar informações interessantes como
 - DNS Servers
 - MX Records
 - Host Records A

@@ -3,11 +3,11 @@ O **Netcraft** é um ótimo projeto para buscar informações baseadas em OSINT.
 
 Veja o site:
 ```sh
-  www.netcraft.com
+  www.netcraft.com
 ```
 ## Conhecendo a Netcraft
-A Netcraft é uma empresa com sede em Bath na Ingraterra , ela é uma empresa que presta serviços
-- Anti fraud
+A Netcraft é uma empresa com sede em Bath na Inglaterra, ela é uma empresa que presta serviços
+- Anti fraude
 - Anti Phishing
 - Testes em aplicativos
 - Revisão de código
@@ -16,7 +16,7 @@ A Netcraft é uma empresa com sede em Bath na Ingraterra , ela é uma empresa qu
 ## Buscando informações usando o Netcraft
 Podemos buscar informações sobre
 - Webserver
-- Subdominios
+- Subdomínios
 
 
 Veja um exemplo buscando informações sobre o Google
@@ -36,18 +36,18 @@ Ele pode ser utilizado para encontrar subdomínios.
 
 Podemos procurar mais opções do **Netcraft** , mais recomendo usar
 ```sh
- http://toolbar.netcraft.com/site_report?url=
+ http://toolbar.netcraft.com/site_report?url=
 ```
 
-Vou usar como exemplo o Google , ele é interessante pois podemos descobrir o range de IPS da rede , sem interagir com o host , podemos descobrir outros IPS e assim outros servidores importantes na rede.
+Vou usar como exemplo o Google, ele é interessante pois podemos descobrir o range de IPS da rede, sem interagir com o host, podemos descobrir outros IPS e assim outros servidores importantes na rede.
 
 Podemos ver informações como:
-- Titulo do site
+- Título do site
 - Rank do site
 - Descrição
 - Palavras chaves
-- Linguagem primaria
-- Netcraft analise de Risco
+- Linguagem primária
+- Netcraft análise de Risco
 - Visto pela primeira vez
 
 Também é possível ver informações de rede como:
@@ -57,13 +57,13 @@ Também é possível ver informações de rede como:
 - IPv6
 - Domínio Registrador
 - Organização responsável
-- Hospedado em qual pais
+- Hospedado em qual país
 - Empresa que hospeda
 - DNS reverso (DNS lookup é a determinação de um domínio associado a um IP)
 - Email do DNS admin
 - NameServer
 
-Podemos ver logo a baixo do resultado em **Hosting History** o dono do IP , nesse caso é em **Netblock owner** que é onde encontramos os responsáveis pelo **Bloco de rede**.
+Podemos ver logo abaixo do resultado em **Hosting History** o dono do IP , nesse caso é em **Netblock owner** que é onde encontramos os responsáveis pelo **Bloco de rede**.
 
 Ao fazer um teste com a **google.com** podemos ver que o dono é **Google LLC 1600 Amphitheatre Parkway Mountain View CA US 94043**.
 

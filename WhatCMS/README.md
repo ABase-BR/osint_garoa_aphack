@@ -22,13 +22,13 @@ https://whatcms.org/API?cmd=RegisterForm
 ```
 > O cadastro é gratuito
 
-Também podemos usar as versões pagas por **10 dólares** por mes conseguindo verificar **10 mil sites** e até **360 dólares** por mês conseguindo verificar mais de **1 milhão de sites**.
+Também podemos usar as versões pagas por **10 dólares** por mês conseguindo verificar **10 mil sites** e até **360 dólares** por mês conseguindo verificar mais de **1 milhão de sites**.
 ```sh
 https://whatcms.org/Subscriptions/Plans
 ```
 
 ## Como ele reconhece ?
-Graças a **analise de metadados**, **headers da aplicação** e **arquivos javascript** ele consegue identificar um CMS.
+Graças à **analise de metadados**, **headers da aplicação** e **arquivos javascript** ele consegue identificar um CMS.
 
 - https://whatcms.org/Tech_Reports
 

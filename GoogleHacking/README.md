@@ -13,7 +13,7 @@ O Google Basicamente faz o uso de operadores , ai ele faz uma busca para localiz
 Podemos usar o Google para buscar por
 - Versões específicas vulneráveis
 - Localizar todas as páginas que possuem um determinado texto
-- Paginas de administração
+- Páginas de administração
 - Backups de arquivos
 
 E tudo que pode estar sendo indexado pelo Google.
@@ -45,7 +45,7 @@ Subtrair
 ```
 
 ### site
-O operador site é usado para determinar uma URL especifica, dessa forma verificar resultados a partir de determinados sites ou domínios.
+O operador site é usado para determinar uma URL específica, dessa forma verificar resultados a partir de determinados sites ou domínios.
 ```sh
 site:.gov
 site:.edu.br
@@ -53,7 +53,7 @@ site:inforeason.com.br
 ```
 
 ### Filetype
-Podemos buscar por arquivos usando o operador **filetype** , podemos buscar pelas extensões como pr exemplo o **PDF** e buscar por
+Podemos buscar por arquivos usando o operador **filetype**, com ele conseguimos buscar pelas extensões como por exemplo o **PDF** e buscar por
 - Apresentações
 - Livros
 - Papers
@@ -70,19 +70,19 @@ intitle:"Bem vindo"
 ```
 
 ### Allintitle
-O Allintitle é diferente do **intitle** , ele busca por palavras que devem ser encontradas no title da pagina.
+O Allintitle é diferente do **intitle** , ele busca por palavras que devem ser encontradas no title da página.
 ```sh
 allintitle:admin
 ```
 
 ### Inurl
-Usando o **inurl** podemos buscar por por URLS , no exemplo a baixo ele vai buscar por links que contenham admin.
+Usando o **inurl** podemos buscar por por URLS , no exemplo abaixo ele vai buscar por links que contenham admin.
 ```sh
 inurl:admin
 ```
 
 ### Cache
-Podemos usar a opção **cache** para ver como era a pagina quando o google a visitou pela ultima vez.
+Podemos usar a opção **cache** para ver como era a página quando o google a visitou pela última vez.
 ```sh
 cache:facebook.com
 ```
@@ -106,13 +106,13 @@ ext:sql
 ### Allinurl
 O allinurl é semelhante ao **inurl**, só que ele funciona de forma restritiva buscando apenas pelas string passada.
 
-Buscando por paginas de login.
+Buscando por páginas de login.
 ```sh
 allinurl: login
 ```
 
 ### Intext
-É possível buscar por strings dentro de um texto em uma pagina.
+É possível buscar por strings dentro de um texto em uma página.
 ```sh
 intext: @gmail
 ```
@@ -129,19 +129,19 @@ google.com -www.google.com
 ```
 
 ### "
-Podemos buscar por um conjunto especifico de palavras usando as **aspas** , dessa forma quando é colocado uma palavra ou frase entre aspas, os resultados incluem apenas páginas com as mesmas palavras e na mesma ordem do que está dentro das aspas.
+Podemos buscar por um conjunto específico de palavras usando as **aspas** , dessa forma quando é colocado uma palavra ou frase entre aspas, os resultados incluem apenas páginas com as mesmas palavras e na mesma ordem do que está dentro das aspas.
 
-Só podemos usar isso quando buscamos por uma determinada frase , senão acabamos excluindo diversos resultados validos.
+Só podemos usar isso quando buscamos por uma determinada frase , senão acabamos excluindo diversos resultados válidos.
 ```sh
 "admin"
-"Júlio César" Curriculo
+"Júlio César" Currículo
 ```
 
 ## Docks
 Agora que já conhecemos alguns dos Operadores podemos conhecer as Dorks , as dorks nada mais são que conjuntos de operadores e palavras chaves juntas e assim nos auxiliando ainda mais em nossa pesquisa.
 
 ### Buscando por index of
-Podemos buscar por **Index of** em paginas do Governo , nesse exemplo estou usando os seguintes operadores:
+Podemos buscar por **Index of** em páginas do Governo, nesse exemplo estou usando os seguintes operadores:
 - site
 - intitle
 - palavras chave
@@ -161,8 +161,8 @@ site:org ext:sql password
 ext:pdf site:globo.com -robots.txt
 ```
 
-### Buscando por paginas de login do governo
-É possível procurar por paginas de login usando os operadores
+### Buscando por páginas de login do governo
+É possível procurar por páginas de login usando os operadores
 - intitle
 - site
 
@@ -186,7 +186,7 @@ Podemos buscar por ambientes de trabalho remotos que estão indexados no google 
 "Remote Desktop Web Connection"
 ```
 
-Ou tambem usar o operador **intitle**.
+Ou também usar o operador **intitle**.
 ```sh
 intitle: "Remote Desktop Web Connection"
 ```
@@ -207,4 +207,27 @@ Podemos buscar por Dorks no site Exploit DB , nele temos um conjunto de filtros 
 Veja o site
 ```sh
 https://www.exploit-db.com/
+```
+
+## Usando o Docker (googleinurl)
+Podemos usar uma ferramenta bem interessante que se chama **INURLBR**, com ela conseguimos automatizar a consulta no google e ele está disponível no github.
+```sh
+https://github.com/googleinurl/SCANNER-INURLBR
+```
+
+Mas podemos usar o docker com essa ferramenta e temos um projeto que podemos usar.
+```sh
+https://github.com/greenmind-sec/inurl-docker
+```
+
+### Criando imagem
+Podemos criar a imagem da seguinte forma
+```sh
+sudo docker build -t "greenmind/inurl:1" .
+```
+
+### Usando a imagem criada
+Podemos usar a imagem via argumento e podemos usar ela da seguinte forma.
+```sh
+sudo docker container run -it --rm -v "greenmind/inurl:1" --dork 'site:businesscorp.com.br' -s /root/save.txt
 ```

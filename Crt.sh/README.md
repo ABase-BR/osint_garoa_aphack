@@ -32,22 +32,22 @@ curl -s 'https://crt.sh/?q=%.google.com&output=json' | jq '.[] | {name_value}' |
 ```
 
 #### Projeto .sh usando argumentos
-Outra forma é criando um codigo e passando o alvo como argumento:
+Outra forma é criando um código e passando o alvo como argumento:
 ```sh
 #!/bin/bash
 
 # check arg
 if [[ "$1" == "" ]]
 then
-  echo "Não foi passado nenhum argumento"
+  echo "Não foi passado nenhum argumento"
 else
-  ALVO="$1"
-  URL='https://crt.sh/?q=%.'$ALVO'&output=json'
-  curl -s $URL | jq '.[] | {name_value}' | sed 's/\"//g' | sed 's/\*\.//g' | sort -u | sed 's/name_value: //g'
+  ALVO="$1"
+  URL='https://crt.sh/?q=%.'$ALVO'&output=json'
+  curl -s $URL | jq '.[] | {name_value}' | sed 's/\"//g' | sed 's/\*\.//g' | sort -u | sed 's/name_value: //g'
 fi
 ```
 
-> No meu caso chalei esse projeto de **crt.sh**, precisamos dar permissão de execução e pode ser feito usando:
+> No meu caso chamei esse projeto de **crt.sh**, precisamos dar permissão de execução e pode ser feito usando:
 ```sh
 chmod +x crt.sh
 ```
@@ -58,7 +58,7 @@ Podemos executar ele da seguinte forma:
 ```
 
 ### Usando o docker
-Podemos usar o docker, dessa forma usamos ele de forma isolado e não precisamos instalar nada em nossa maquina.
+Podemos usar o docker, dessa forma usamos ele de forma isolado e não precisamos instalar nada em nossa máquina.
 
 > Já desenvolvi um projeto que pode ser encontrado em
 ```sh
@@ -80,7 +80,7 @@ RUN chmod +x crt.sh
 
 ENTRYPOINT ["sh","/root/crt.sh"]
 ```
-> Com o uso do **FROM** setamos uma imagem, nesse caso vou usar um alpine, **RUN** executa comando e nesse caso vou instalar os requisitos para ele funcionar que é **curl jq**. Já o comando **WORKDIR** vamos usar para falar que queremos ir para um determinado diretorio, nesse caso é o **/root**. O **ADD** vai adicionar um arquivo ou varios. Usamos novamente o **RUN** para dar permissão de execução no programa **crt.sh** e para finalizar usamos o **ENTRYPOINT** que vai setar o nosso script. Dessa forma podemos usar argumentos nesse container e ele só tem 8 MB.
+> Com o uso do **FROM** setamos uma imagem, nesse caso vou usar um alpine, **RUN** executa comando e nesse caso vou instalar os requisitos para ele funcionar que é **curl jq**. Já o comando **WORKDIR** vamos usar para falar que queremos ir para um determinado diretório, nesse caso é o **/root**. O **ADD** vai adicionar um arquivo ou vários. Usamos novamente o **RUN** para dar permissão de execução no programa **crt.sh** e para finalizar usamos o **ENTRYPOINT** que vai setar o nosso script. Dessa forma podemos usar argumentos nesse container e ele só tem 8 MB.
 
 #### Compilando imagem
 ```sh
